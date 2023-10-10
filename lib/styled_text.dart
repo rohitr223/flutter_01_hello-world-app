@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// 
+// Reusable Text Component
 class StyledText extends StatelessWidget {
   const StyledText(this.text, {super.key});
 

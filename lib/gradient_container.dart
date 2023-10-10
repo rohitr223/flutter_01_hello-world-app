@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'package:myfirstproject/styled_text.dart';
+
+// global variables
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+
 class GradientContainer extends StatelessWidget {
-   // constructor function
+  // constructor function
   // it needs an argument named key
   // super keyword is used to refer immediate parent class object.
-  const GradientContainer({super.key});
+  const GradientContainer({super.key, required this.colors});
+
+  // List of colors
+  final List<Color> colors;
 
   @override
   // context contains all the widget tree data
@@ -15,34 +24,18 @@ class GradientContainer extends StatelessWidget {
         // backgroundColor: Colors.blue[50],
         body: Container(
           // adding linear gradient as background
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Colors.red,
-                Colors.orange,
-                Colors.yellow,
-                Colors.green,
-                Colors.blue,
-                Colors.indigo,
-                Color.fromARGB(255, 97, 3, 238),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              colors: colors,
+              begin: startAlignment,
+              end: endAlignment,
             ),
           ),
           child: const Center(
-            child: Text(
-              'Hello World!',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w800,
-                color: Colors.white,
-              ),
-            ),
+            child: StyledText('Hello World!'),
           ),
         ),
       ),
     );
   }
 }
-
